@@ -1,0 +1,256 @@
+{
+  "schema_version": "1.0",
+  "account_id": "000000000000",
+  "regions": [
+    "us-west-2"
+  ],
+  "generated_at": "2026-11-18T12:00:00+00:00",
+  "inventories": [
+    {
+      "kind": "security_groups",
+      "region": "us-west-2",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "complete": true,
+      "records": [
+        {
+          "GroupId": "sg-example-public-ssh",
+          "IpPermissions": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "GroupId": "sg-example-public-rdp",
+          "IpPermissions": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3389,
+              "ToPort": 3389,
+              "Ipv6Ranges": [
+                {
+                  "CidrIpv6": "::/0"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "GroupId": "sg-example-private-ssh",
+          "IpPermissions": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "IpRanges": [
+                {
+                  "CidrIp": "203.0.113.10/32"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "GroupId": "sg-example-unknown"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "instances",
+      "region": "us-west-2",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "complete": true,
+      "records": [
+        {
+          "InstanceId": "i-example-v2",
+          "State": {
+            "Name": "running"
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpEndpoint": "enabled",
+            "HttpTokens": "required"
+          }
+        },
+        {
+          "InstanceId": "i-example-v1",
+          "State": {
+            "Name": "running"
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpEndpoint": "enabled",
+            "HttpTokens": "optional"
+          }
+        },
+        {
+          "InstanceId": "i-example-pending",
+          "State": {
+            "Name": "running"
+          },
+          "MetadataOptions": {
+            "State": "pending",
+            "HttpEndpoint": "enabled",
+            "HttpTokens": "required"
+          }
+        },
+        {
+          "InstanceId": "i-example-terminated",
+          "State": {
+            "Name": "terminated"
+          },
+          "MetadataOptions": {
+            "State": "applied",
+            "HttpEndpoint": "enabled",
+            "HttpTokens": "required"
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "volumes",
+      "region": "us-west-2",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "complete": true,
+      "records": [
+        {
+          "VolumeId": "vol-example-encrypted",
+          "Encrypted": true,
+          "Attachments": []
+        },
+        {
+          "VolumeId": "vol-example-unencrypted",
+          "Encrypted": false,
+          "Attachments": []
+        },
+        {
+          "VolumeId": "vol-example-unknown"
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "buckets",
+      "region": "us-west-2",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "complete": true,
+      "records": [
+        {
+          "Name": "example-audit-account-covered",
+          "AccountBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": true,
+              "IgnorePublicAcls": true,
+              "BlockPublicPolicy": true,
+              "RestrictPublicBuckets": true
+            }
+          },
+          "BucketBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": false,
+              "IgnorePublicAcls": false,
+              "BlockPublicPolicy": false,
+              "RestrictPublicBuckets": false
+            }
+          },
+          "Versioning": {
+            "state": "present",
+            "data": {
+              "Status": "Enabled"
+            }
+          }
+        },
+        {
+          "Name": "example-audit-gap",
+          "AccountBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": false,
+              "IgnorePublicAcls": false,
+              "BlockPublicPolicy": false,
+              "RestrictPublicBuckets": false
+            }
+          },
+          "BucketBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": false,
+              "IgnorePublicAcls": false,
+              "BlockPublicPolicy": false,
+              "RestrictPublicBuckets": false
+            }
+          },
+          "Versioning": {
+            "state": "present",
+            "data": {
+              "Status": "Suspended"
+            }
+          }
+        },
+        {
+          "Name": "example-audit-unknown",
+          "AccountBlock": {
+            "state": "unknown"
+          },
+          "BucketBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": false,
+              "IgnorePublicAcls": false,
+              "BlockPublicPolicy": false,
+              "RestrictPublicBuckets": false
+            }
+          },
+          "Versioning": {
+            "state": "unknown"
+          }
+        },
+        {
+          "Name": "example-audit-no-history",
+          "AccountBlock": {
+            "state": "absent"
+          },
+          "BucketBlock": {
+            "state": "present",
+            "data": {
+              "BlockPublicAcls": true,
+              "IgnorePublicAcls": true,
+              "BlockPublicPolicy": true,
+              "RestrictPublicBuckets": true
+            }
+          },
+          "Versioning": {
+            "state": "present",
+            "data": {}
+          }
+        }
+      ],
+      "errors": []
+    },
+    {
+      "kind": "users",
+      "region": "global",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "complete": false,
+      "records": [],
+      "errors": [
+        {
+          "operation": "list_users",
+          "code": "AccessDenied",
+          "resource": "scope"
+        }
+      ]
+    }
+  ]
+}

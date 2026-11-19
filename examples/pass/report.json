@@ -1,0 +1,92 @@
+{
+  "approved_exceptions": [],
+  "assessments": [
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-19T02:30:26.780906+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "No explicit /0 TCP ingress covering 22 or 3389 was observed."
+      ],
+      "id": "d59d9052ac121507e6e2678565c36418",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-private-ssh",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "PASS",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    }
+  ],
+  "coverage": {
+    "access_key_count": 0,
+    "assessment_count": 1,
+    "collection_complete": true,
+    "completed_regions": [
+      "us-west-2"
+    ],
+    "completed_services": [
+      "EC2"
+    ],
+    "evaluation_complete": true,
+    "incomplete_assessment_count": 0,
+    "inventories": [
+      {
+        "collected_at": "2026-11-19T02:30:26.780906+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "security_groups",
+        "region": "us-west-2",
+        "resource_count": 1,
+        "service": "EC2"
+      }
+    ],
+    "resource_count": 1,
+    "skipped": [],
+    "unknown_count": 0
+  },
+  "evaluated_at": "2026-11-19T02:30:26.780906+00:00",
+  "failed_by_severity": {
+    "HIGH": 0,
+    "LOW": 0,
+    "MEDIUM": 0
+  },
+  "findings": [],
+  "generated_at": "2026-11-19T02:30:26.780906+00:00",
+  "limitations": [
+    "Seven project baselines, not compliance certification or proof of exploitability.",
+    "One commercial AWS account; EC2/EBS and general purpose S3 buckets in requested regions; IAM once globally.",
+    "Directory buckets, access points, Outposts, root credentials, SSO users, and role sessions are outside scope.",
+    "Ingress checks examine individual explicit /0 rules; no aggregate CIDR, prefix-list expansion, routing, ACL, or reachability analysis.",
+    "S3 public access block is a configuration baseline, not full policy/ACL authorization analysis.",
+    "Registered MFA does not prove session MFA enforcement. APIs are not an atomic snapshot; races can occur.",
+    "Read-only collection; remediation must be reviewed and applied separately."
+  ],
+  "mode": "offline",
+  "scan_errors": [],
+  "schema_version": "1.0",
+  "scope": {
+    "account_id": "000000000000",
+    "checks_run": [
+      "EC2-001"
+    ],
+    "max_key_age_days": 90,
+    "requested_regions": [
+      "us-west-2"
+    ],
+    "requested_services": [
+      "EC2"
+    ]
+  },
+  "summary": {
+    "FAIL": 0,
+    "NOT_APPLICABLE": 0,
+    "PASS": 1,
+    "UNKNOWN": 0
+  }
+}

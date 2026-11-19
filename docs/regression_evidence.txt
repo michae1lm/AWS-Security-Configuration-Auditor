@@ -1,0 +1,17 @@
+Local pre-fix regression run, November 18, 2026
+
+Command:
+python -m unittest discover -s tests -p test_cli_reporting.py
+
+Observed before the fix:
+FAIL: test_failed_bucket_with_unknown_effective_field_keeps_scan_incomplete
+AssertionError: 1 != 2
+
+FAIL: test_failed_group_with_missing_rule_keeps_scan_incomplete
+AssertionError: 1 != 2
+
+Ran 26 tests
+FAILED (failures=2)
+
+The fix preserves FAIL while exposing incomplete compound input and returning 2.
+Both regressions pass in the final suite. See validation.md and test_results.txt.

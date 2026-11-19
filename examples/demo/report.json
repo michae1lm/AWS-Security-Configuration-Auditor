@@ -1,0 +1,870 @@
+{
+  "approved_exceptions": [],
+  "assessments": [
+    {
+      "account_id": "000000000000",
+      "check_id": "EBS-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Encrypted=True; attachments=[]."
+      ],
+      "id": "601d1f6bc60cb5f0eb10e5970f1d423b",
+      "recommendation": "Plan an encrypted snapshot/volume replacement and migrate attachments after backup and validation.",
+      "region": "us-west-2",
+      "resource_id": "vol-example-encrypted",
+      "resource_type": "AWS::EC2::Volume",
+      "risk": "The volume reports encryption disabled, reducing at-rest data protection.",
+      "service": "EBS",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "title": "Encrypt EBS volumes",
+      "verification": "Check encryption on the replacement, validate the migration, and rerun EBS-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EBS-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Encrypted=False; attachments=[]."
+      ],
+      "id": "991a83a0fb0b705b91ec866515ae37d7",
+      "recommendation": "Plan an encrypted snapshot/volume replacement and migrate attachments after backup and validation.",
+      "region": "us-west-2",
+      "resource_id": "vol-example-unencrypted",
+      "resource_type": "AWS::EC2::Volume",
+      "risk": "The volume reports encryption disabled, reducing at-rest data protection.",
+      "service": "EBS",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Encrypt EBS volumes",
+      "verification": "Check encryption on the replacement, validate the migration, and rerun EBS-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EBS-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "Encrypted=None; attachments='unknown'."
+      ],
+      "id": "4270ace248300f309a09be6b3895c75c",
+      "recommendation": "Plan an encrypted snapshot/volume replacement and migrate attachments after backup and validation.",
+      "region": "us-west-2",
+      "resource_id": "vol-example-unknown",
+      "resource_type": "AWS::EC2::Volume",
+      "risk": "The volume reports encryption disabled, reducing at-rest data protection.",
+      "service": "EBS",
+      "severity": "MEDIUM",
+      "status": "UNKNOWN",
+      "title": "Encrypt EBS volumes",
+      "verification": "Check encryption on the replacement, validate the migration, and rerun EBS-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "Instance state='running'; HttpEndpoint='enabled'; HttpTokens='required'; configuration state='pending'."
+      ],
+      "id": "14f0c73e7edb7a4dc99c62dfd4b7a45e",
+      "recommendation": "Test application compatibility, then require IMDSv2, or disable an unused metadata endpoint.",
+      "region": "us-west-2",
+      "resource_id": "i-example-pending",
+      "resource_type": "AWS::EC2::Instance",
+      "risk": "Optional tokens allow IMDSv1; this observation does not establish credential theft.",
+      "service": "EC2",
+      "severity": "MEDIUM",
+      "status": "UNKNOWN",
+      "title": "Require IMDSv2 when instance metadata is enabled",
+      "verification": "Wait for MetadataOptions.State=applied, re-read configuration, and rerun EC2-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Instance state='terminated'; HttpEndpoint='enabled'; HttpTokens='required'; configuration state='applied'."
+      ],
+      "id": "de85812f9566bbad6cf53b575761db03",
+      "recommendation": "Test application compatibility, then require IMDSv2, or disable an unused metadata endpoint.",
+      "region": "us-west-2",
+      "resource_id": "i-example-terminated",
+      "resource_type": "AWS::EC2::Instance",
+      "risk": "Optional tokens allow IMDSv1; this observation does not establish credential theft.",
+      "service": "EC2",
+      "severity": "MEDIUM",
+      "status": "NOT_APPLICABLE",
+      "title": "Require IMDSv2 when instance metadata is enabled",
+      "verification": "Wait for MetadataOptions.State=applied, re-read configuration, and rerun EC2-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Instance state='running'; HttpEndpoint='enabled'; HttpTokens='optional'; configuration state='applied'."
+      ],
+      "id": "a317cc0dd15b576cb12305b459e2a75b",
+      "recommendation": "Test application compatibility, then require IMDSv2, or disable an unused metadata endpoint.",
+      "region": "us-west-2",
+      "resource_id": "i-example-v1",
+      "resource_type": "AWS::EC2::Instance",
+      "risk": "Optional tokens allow IMDSv1; this observation does not establish credential theft.",
+      "service": "EC2",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Require IMDSv2 when instance metadata is enabled",
+      "verification": "Wait for MetadataOptions.State=applied, re-read configuration, and rerun EC2-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Instance state='running'; HttpEndpoint='enabled'; HttpTokens='required'; configuration state='applied'."
+      ],
+      "id": "fcfc9e64acfae77804137a23284970d0",
+      "recommendation": "Test application compatibility, then require IMDSv2, or disable an unused metadata endpoint.",
+      "region": "us-west-2",
+      "resource_id": "i-example-v2",
+      "resource_type": "AWS::EC2::Instance",
+      "risk": "Optional tokens allow IMDSv1; this observation does not establish credential theft.",
+      "service": "EC2",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "title": "Require IMDSv2 when instance metadata is enabled",
+      "verification": "Wait for MetadataOptions.State=applied, re-read configuration, and rerun EC2-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "No explicit /0 TCP ingress covering 22 or 3389 was observed."
+      ],
+      "id": "e51401e0d968fb5ec71b5ae608d3951d",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-private-ssh",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "PASS",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "::/0 permits TCP ports [3389]."
+      ],
+      "id": "9e29272c88262686941aaeefeba355ec",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-public-rdp",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "0.0.0.0/0 permits TCP ports [22]."
+      ],
+      "id": "46d9ac50082eff8a204ce32a6b760fdc",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-public-ssh",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "IpPermissions is missing or is not a list."
+      ],
+      "id": "4d816681efc75f7121a9754ec4c051c8",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-unknown",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "UNKNOWN",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "No console profile; fresh IAM listing still contains the same user."
+      ],
+      "id": "d7db23d7d38adcdd5b087a00e1313626",
+      "recommendation": "Register an appropriate MFA device and separately review authentication enforcement.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-api-user",
+      "resource_type": "AWS::IAM::User",
+      "risk": "A console user has no registered MFA device; session-level MFA use is outside this check.",
+      "service": "IAM",
+      "severity": "HIGH",
+      "status": "NOT_APPLICABLE",
+      "title": "Register MFA for IAM console users",
+      "verification": "Re-list the user's registered MFA devices and rerun IAM-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Console profile present; registered MFA device count=1."
+      ],
+      "id": "e4d209b2e157a48e816b583bac405a8e",
+      "recommendation": "Register an appropriate MFA device and separately review authentication enforcement.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-mfa-user",
+      "resource_type": "AWS::IAM::User",
+      "risk": "A console user has no registered MFA device; session-level MFA use is outside this check.",
+      "service": "IAM",
+      "severity": "HIGH",
+      "status": "PASS",
+      "title": "Register MFA for IAM console users",
+      "verification": "Re-list the user's registered MFA devices and rerun IAM-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Active key created=2026-08-21T12:00:00+00:00; age_seconds=7689600.000000; threshold_days=90."
+      ],
+      "id": "a031f9603082e110180f5e97fd5b0420",
+      "recommendation": "Review the active key, migrate consumers to temporary credentials where possible, or rotate and verify consumers.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-mfa-user/key/***0001",
+      "resource_type": "AWS::IAM::AccessKey",
+      "risk": "An active key exceeds the configured review threshold; age alone does not establish compromise.",
+      "service": "IAM",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "title": "Review active IAM user key age",
+      "verification": "Validate consumer migration, retire the old key separately, and rerun IAM-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Console profile present; complete MFA device inventory is empty."
+      ],
+      "id": "010203e3525c2ebafd9a6dcca9961d19",
+      "recommendation": "Register an appropriate MFA device and separately review authentication enforcement.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-review-user",
+      "resource_type": "AWS::IAM::User",
+      "risk": "A console user has no registered MFA device; session-level MFA use is outside this check.",
+      "service": "IAM",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Register MFA for IAM console users",
+      "verification": "Re-list the user's registered MFA devices and rerun IAM-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Active key created=2026-08-19T12:00:00+00:00; age_seconds=7862400.000000; threshold_days=90."
+      ],
+      "id": "aac6c439f60af268a399e92c274bc96d",
+      "recommendation": "Review the active key, migrate consumers to temporary credentials where possible, or rotate and verify consumers.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-review-user/key/***0002",
+      "resource_type": "AWS::IAM::AccessKey",
+      "risk": "An active key exceeds the configured review threshold; age alone does not establish compromise.",
+      "service": "IAM",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Review active IAM user key age",
+      "verification": "Validate consumer migration, retire the old key separately, and rerun IAM-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "Access key inventory is missing or malformed."
+      ],
+      "id": "bddf3af7a4644b41b1037e7e8e7c3305",
+      "recommendation": "Review the active key, migrate consumers to temporary credentials where possible, or rotate and verify consumers.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-unknown",
+      "resource_type": "AWS::IAM::User",
+      "risk": "An active key exceeds the configured review threshold; age alone does not establish compromise.",
+      "service": "IAM",
+      "severity": "MEDIUM",
+      "status": "UNKNOWN",
+      "title": "Review active IAM user key age",
+      "verification": "Validate consumer migration, retire the old key separately, and rerun IAM-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "Console login profile is unknown."
+      ],
+      "id": "8e176e5d81ad959a2f5b0c77ac97be86",
+      "recommendation": "Register an appropriate MFA device and separately review authentication enforcement.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-unknown",
+      "resource_type": "AWS::IAM::User",
+      "risk": "A console user has no registered MFA device; session-level MFA use is outside this check.",
+      "service": "IAM",
+      "severity": "HIGH",
+      "status": "UNKNOWN",
+      "title": "Register MFA for IAM console users",
+      "verification": "Re-list the user's registered MFA devices and rerun IAM-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "BlockPublicAcls: account=True, bucket=False, effective=True.",
+        "IgnorePublicAcls: account=True, bucket=False, effective=True.",
+        "BlockPublicPolicy: account=True, bucket=False, effective=True.",
+        "RestrictPublicBuckets: account=True, bucket=False, effective=True."
+      ],
+      "id": "bec7b6989a14ea7cbe8e1b0f9b7040bf",
+      "recommendation": "Review required access, then enable the missing account or bucket public access block settings.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-account-covered",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "A public access block baseline gap is present; this does not establish public access to objects.",
+      "service": "S3",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "title": "Enable all effective S3 public access block settings",
+      "verification": "Re-read account and bucket settings and rerun S3-001; separately review authorization policies."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Versioning Status='Enabled'; successful configuration read."
+      ],
+      "id": "87ae0c054542390edcad20cd5fd2e465",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-account-covered",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "PASS",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "BlockPublicAcls: account=False, bucket=False, effective=False.",
+        "IgnorePublicAcls: account=False, bucket=False, effective=False.",
+        "BlockPublicPolicy: account=False, bucket=False, effective=False.",
+        "RestrictPublicBuckets: account=False, bucket=False, effective=False."
+      ],
+      "id": "f46b4cb98439c4485f1ced52e79d401d",
+      "recommendation": "Review required access, then enable the missing account or bucket public access block settings.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-gap",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "A public access block baseline gap is present; this does not establish public access to objects.",
+      "service": "S3",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Enable all effective S3 public access block settings",
+      "verification": "Re-read account and bucket settings and rerun S3-001; separately review authorization policies."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Versioning Status='Suspended'; successful configuration read."
+      ],
+      "id": "b079cf7a161ddfc82ad8a16cffc44076",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-gap",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "FAIL",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "BlockPublicAcls: account=False, bucket=True, effective=True.",
+        "IgnorePublicAcls: account=False, bucket=True, effective=True.",
+        "BlockPublicPolicy: account=False, bucket=True, effective=True.",
+        "RestrictPublicBuckets: account=False, bucket=True, effective=True."
+      ],
+      "id": "2cbb6f96b7c75175499de247f7f45363",
+      "recommendation": "Review required access, then enable the missing account or bucket public access block settings.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-no-history",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "A public access block baseline gap is present; this does not establish public access to objects.",
+      "service": "S3",
+      "severity": "MEDIUM",
+      "status": "PASS",
+      "title": "Enable all effective S3 public access block settings",
+      "verification": "Re-read account and bucket settings and rerun S3-001; separately review authorization policies."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Versioning Status=None; successful configuration read."
+      ],
+      "id": "19c9b007fe4f8f301a903a792f077d4a",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-no-history",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "FAIL",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "BlockPublicAcls: account=None, bucket=False, effective=None.",
+        "IgnorePublicAcls: account=None, bucket=False, effective=None.",
+        "BlockPublicPolicy: account=None, bucket=False, effective=None.",
+        "RestrictPublicBuckets: account=None, bucket=False, effective=None."
+      ],
+      "id": "bdfcd57c5bca4382c075049abae665d3",
+      "recommendation": "Review required access, then enable the missing account or bucket public access block settings.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-unknown",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "A public access block baseline gap is present; this does not establish public access to objects.",
+      "service": "S3",
+      "severity": "MEDIUM",
+      "status": "UNKNOWN",
+      "title": "Enable all effective S3 public access block settings",
+      "verification": "Re-read account and bucket settings and rerun S3-001; separately review authorization policies."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": false,
+      "evidence": [
+        "Bucket versioning could not be read."
+      ],
+      "id": "7a4a5ed19eea83c0405e8c51250d0899",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-unknown",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "UNKNOWN",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    }
+  ],
+  "coverage": {
+    "access_key_count": 2,
+    "assessment_count": 26,
+    "collection_complete": true,
+    "completed_regions": [
+      "us-west-2"
+    ],
+    "completed_services": [
+      "EBS",
+      "EC2",
+      "IAM",
+      "S3"
+    ],
+    "evaluation_complete": false,
+    "incomplete_assessment_count": 7,
+    "inventories": [
+      {
+        "collected_at": "2026-11-18T12:00:00+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "volumes",
+        "region": "us-west-2",
+        "resource_count": 3,
+        "service": "EBS"
+      },
+      {
+        "collected_at": "2026-11-18T12:00:00+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "instances",
+        "region": "us-west-2",
+        "resource_count": 4,
+        "service": "EC2"
+      },
+      {
+        "collected_at": "2026-11-18T12:00:00+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "security_groups",
+        "region": "us-west-2",
+        "resource_count": 4,
+        "service": "EC2"
+      },
+      {
+        "collected_at": "2026-11-18T12:00:00+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "users",
+        "region": "global",
+        "resource_count": 4,
+        "service": "IAM"
+      },
+      {
+        "collected_at": "2026-11-18T12:00:00+00:00",
+        "complete": true,
+        "error_count": 0,
+        "kind": "buckets",
+        "region": "us-west-2",
+        "resource_count": 4,
+        "service": "S3"
+      }
+    ],
+    "resource_count": 19,
+    "skipped": [],
+    "unknown_count": 7
+  },
+  "evaluated_at": "2026-11-18T12:00:00+00:00",
+  "failed_by_severity": {
+    "HIGH": 3,
+    "LOW": 2,
+    "MEDIUM": 4
+  },
+  "findings": [
+    {
+      "account_id": "000000000000",
+      "check_id": "EBS-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Encrypted=False; attachments=[]."
+      ],
+      "id": "991a83a0fb0b705b91ec866515ae37d7",
+      "recommendation": "Plan an encrypted snapshot/volume replacement and migrate attachments after backup and validation.",
+      "region": "us-west-2",
+      "resource_id": "vol-example-unencrypted",
+      "resource_type": "AWS::EC2::Volume",
+      "risk": "The volume reports encryption disabled, reducing at-rest data protection.",
+      "service": "EBS",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Encrypt EBS volumes",
+      "verification": "Check encryption on the replacement, validate the migration, and rerun EBS-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Instance state='running'; HttpEndpoint='enabled'; HttpTokens='optional'; configuration state='applied'."
+      ],
+      "id": "a317cc0dd15b576cb12305b459e2a75b",
+      "recommendation": "Test application compatibility, then require IMDSv2, or disable an unused metadata endpoint.",
+      "region": "us-west-2",
+      "resource_id": "i-example-v1",
+      "resource_type": "AWS::EC2::Instance",
+      "risk": "Optional tokens allow IMDSv1; this observation does not establish credential theft.",
+      "service": "EC2",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Require IMDSv2 when instance metadata is enabled",
+      "verification": "Wait for MetadataOptions.State=applied, re-read configuration, and rerun EC2-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "::/0 permits TCP ports [3389]."
+      ],
+      "id": "9e29272c88262686941aaeefeba355ec",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-public-rdp",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "EC2-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "0.0.0.0/0 permits TCP ports [22]."
+      ],
+      "id": "46d9ac50082eff8a204ce32a6b760fdc",
+      "recommendation": "Restrict TCP 22/3389 to approved sources, or use a managed administrative access method.",
+      "region": "us-west-2",
+      "resource_id": "sg-example-public-ssh",
+      "resource_type": "AWS::EC2::SecurityGroup",
+      "risk": "Unrestricted administrative ingress expands exposure; routing and actual reachability are not evaluated.",
+      "service": "EC2",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Restrict unrestricted TCP administrative ingress",
+      "verification": "Re-read inbound rules and rerun EC2-001; separately evaluate network reachability."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Console profile present; complete MFA device inventory is empty."
+      ],
+      "id": "010203e3525c2ebafd9a6dcca9961d19",
+      "recommendation": "Register an appropriate MFA device and separately review authentication enforcement.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-review-user",
+      "resource_type": "AWS::IAM::User",
+      "risk": "A console user has no registered MFA device; session-level MFA use is outside this check.",
+      "service": "IAM",
+      "severity": "HIGH",
+      "status": "FAIL",
+      "title": "Register MFA for IAM console users",
+      "verification": "Re-list the user's registered MFA devices and rerun IAM-002."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "IAM-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Active key created=2026-08-19T12:00:00+00:00; age_seconds=7862400.000000; threshold_days=90."
+      ],
+      "id": "aac6c439f60af268a399e92c274bc96d",
+      "recommendation": "Review the active key, migrate consumers to temporary credentials where possible, or rotate and verify consumers.",
+      "region": "global",
+      "resource_id": "arn:aws:iam::000000000000:user/example-review-user/key/***0002",
+      "resource_type": "AWS::IAM::AccessKey",
+      "risk": "An active key exceeds the configured review threshold; age alone does not establish compromise.",
+      "service": "IAM",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Review active IAM user key age",
+      "verification": "Validate consumer migration, retire the old key separately, and rerun IAM-001."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-001",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "BlockPublicAcls: account=False, bucket=False, effective=False.",
+        "IgnorePublicAcls: account=False, bucket=False, effective=False.",
+        "BlockPublicPolicy: account=False, bucket=False, effective=False.",
+        "RestrictPublicBuckets: account=False, bucket=False, effective=False."
+      ],
+      "id": "f46b4cb98439c4485f1ced52e79d401d",
+      "recommendation": "Review required access, then enable the missing account or bucket public access block settings.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-gap",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "A public access block baseline gap is present; this does not establish public access to objects.",
+      "service": "S3",
+      "severity": "MEDIUM",
+      "status": "FAIL",
+      "title": "Enable all effective S3 public access block settings",
+      "verification": "Re-read account and bucket settings and rerun S3-001; separately review authorization policies."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Versioning Status='Suspended'; successful configuration read."
+      ],
+      "id": "b079cf7a161ddfc82ad8a16cffc44076",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-gap",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "FAIL",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    },
+    {
+      "account_id": "000000000000",
+      "check_id": "S3-002",
+      "collected_at": "2026-11-18T12:00:00+00:00",
+      "collection_complete": true,
+      "evaluation_complete": true,
+      "evidence": [
+        "Versioning Status=None; successful configuration read."
+      ],
+      "id": "19c9b007fe4f8f301a903a792f077d4a",
+      "recommendation": "Review recovery and storage requirements, then enable bucket versioning where appropriate.",
+      "region": "us-west-2",
+      "resource_id": "example-audit-no-history",
+      "resource_type": "AWS::S3::Bucket",
+      "risk": "Recovery from accidental deletion or overwrite is less protected under this versioning baseline.",
+      "service": "S3",
+      "severity": "LOW",
+      "status": "FAIL",
+      "title": "Enable bucket versioning",
+      "verification": "Re-read bucket versioning and rerun S3-002. Consider lifecycle management separately."
+    }
+  ],
+  "generated_at": "2026-11-18T12:00:00+00:00",
+  "limitations": [
+    "Seven project baselines, not compliance certification or proof of exploitability.",
+    "One commercial AWS account; EC2/EBS and general purpose S3 buckets in requested regions; IAM once globally.",
+    "Directory buckets, access points, Outposts, root credentials, SSO users, and role sessions are outside scope.",
+    "Ingress checks examine individual explicit /0 rules; no aggregate CIDR, prefix-list expansion, routing, ACL, or reachability analysis.",
+    "S3 public access block is a configuration baseline, not full policy/ACL authorization analysis.",
+    "Registered MFA does not prove session MFA enforcement. APIs are not an atomic snapshot; races can occur.",
+    "Read-only collection; remediation must be reviewed and applied separately."
+  ],
+  "mode": "offline",
+  "scan_errors": [],
+  "schema_version": "1.0",
+  "scope": {
+    "account_id": "000000000000",
+    "checks_run": [
+      "EBS-001",
+      "EC2-001",
+      "EC2-002",
+      "IAM-001",
+      "IAM-002",
+      "S3-001",
+      "S3-002"
+    ],
+    "max_key_age_days": 90,
+    "requested_regions": [
+      "us-west-2"
+    ],
+    "requested_services": [
+      "EBS",
+      "EC2",
+      "IAM",
+      "S3"
+    ]
+  },
+  "summary": {
+    "FAIL": 9,
+    "NOT_APPLICABLE": 2,
+    "PASS": 8,
+    "UNKNOWN": 7
+  }
+}

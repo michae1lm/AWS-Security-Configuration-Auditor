@@ -1,0 +1,50 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadEc2Inventory",
+      "Effect": "Allow",
+      "Action": [
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeInstances",
+        "ec2:DescribeVolumes"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ListBucketsAndReadAccountBlock",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:GetAccountPublicAccessBlock"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadBucketConfiguration",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetBucketLocation",
+        "s3:GetBucketPublicAccessBlock",
+        "s3:GetBucketVersioning"
+      ],
+      "Resource": "arn:aws:s3:::*"
+    },
+    {
+      "Sid": "ListIamUsers",
+      "Effect": "Allow",
+      "Action": "iam:ListUsers",
+      "Resource": "*"
+    },
+    {
+      "Sid": "ReadIamUserConfiguration",
+      "Effect": "Allow",
+      "Action": [
+        "iam:ListAccessKeys",
+        "iam:GetLoginProfile",
+        "iam:ListMFADevices"
+      ],
+      "Resource": "arn:aws:iam::000000000000:user/*"
+    }
+  ]
+}

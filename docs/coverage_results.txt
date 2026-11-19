@@ -1,0 +1,13 @@
+Name                                 Stmts   Miss  Cover
+--------------------------------------------------------
+aws_security_auditor/__init__.py         1      0   100%
+aws_security_auditor/__main__.py        54     20    63%
+aws_security_auditor/collectors.py     187     28    85%
+aws_security_auditor/controls.py         2      0   100%
+aws_security_auditor/engine.py          41      0   100%
+aws_security_auditor/models.py          59      0   100%
+aws_security_auditor/offline.py         63      1    98%
+aws_security_auditor/reporting.py       80      3    96%
+aws_security_auditor/rules.py          141      1    99%
+--------------------------------------------------------
+TOTAL                                  628     53    92%
